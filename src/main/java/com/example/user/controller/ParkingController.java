@@ -3,6 +3,7 @@ package com.example.user.controller;
 import com.example.user.models.ParkingSpot;
 import com.example.user.models.WebResponse;
 import com.example.user.service.ParkingSpotService;
+import com.example.user.utils.Util;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +18,7 @@ public class ParkingController {
 
     @RequestMapping(value = "/addParking", method = RequestMethod.POST)
     public ResponseEntity<Object> addParking(@RequestBody ParkingSpot parkingSpot) {
+        parkingSpot.setParkingId(Util.getParkingId());
         ParkingSpot parkingSpot1 = parkingSpotService.create(parkingSpot);
 
         WebResponse webResponse = new WebResponse("object", parkingSpot1,

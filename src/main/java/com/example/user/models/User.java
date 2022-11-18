@@ -14,16 +14,16 @@ public class User {
     private String name;
     private String email;
     private String password;
-    private String address;
+/*    private String address;*/
     private String mobileNo;
 
     public User(String userId, String name, String email,
-                String password, String address, String mobileNo) {
+                String password, /*String address,*/ String mobileNo) {
         this.userId = userId;
         this.name = name;
         this.email = email;
         this.password = password;
-        this.address = address;
+       // this.address = address;
         this.mobileNo = mobileNo;
     }
 
@@ -63,13 +63,13 @@ public class User {
         this.password = password;
     }
 
-    public String getAddress() {
+ /*   public String getAddress() {
         return address;
     }
 
     public void setAddress(String address) {
         this.address = address;
-    }
+    }*/
 
     public String getMobileNo() {
         return mobileNo;
@@ -86,7 +86,7 @@ public class User {
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", address='" + address + '\'' +
+               /* ", address='" + address + '\'' +*/
                 ", mobileNo='" + mobileNo + '\'' +
                 '}';
     }

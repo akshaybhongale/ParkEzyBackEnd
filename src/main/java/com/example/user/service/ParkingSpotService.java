@@ -2,7 +2,7 @@ package com.example.user.service;
 
 
 import com.example.user.models.ParkingSpot;
-import com.example.user.repos.ParkingRepos;
+import com.example.user.repos.IParkingRepos;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,7 +21,7 @@ public class ParkingSpotService {
      */
     private static final Logger logger = LoggerFactory.getLogger(ParkingSpotService.class);
 
-    private final ParkingRepos parkingRepos;
+    private final IParkingRepos parkingRepos;
 
 
     public ParkingSpot create(ParkingSpot parkingSpot) {
@@ -30,7 +30,7 @@ public class ParkingSpotService {
     }
 
     public List<ParkingSpot> getAllList() {
-        return parkingRepos.findAll();
+        return parkingRepos.findByIsAvailable(true);
     }
 
     public void remove(String id) {

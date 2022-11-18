@@ -31,6 +31,7 @@ public class UserController {
      */
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public ResponseEntity<Object> register(@RequestBody User user) {
+        user.setUserId(Util.getUserId());
         User user1 = mUserService.create(user);
 
         WebResponse webResponse = new WebResponse("object", user1,
@@ -153,11 +154,11 @@ public class UserController {
         return new ResponseEntity<>(webResponse, HttpStatus.OK);
     }
 
-    /**
+/*    *//**
      * This method is used to return total count of registered user in database
      *
      * @return count of user
-     */
+     *//*
     @RequestMapping(value = "/getCount", method = RequestMethod.GET)
     public ResponseEntity<Object> getCount() {
         long count = mUserService.getCount();
@@ -168,12 +169,12 @@ public class UserController {
         return new ResponseEntity<>(webResponse, HttpStatus.OK);
     }
 
-    /**
+    *//**
      * This method is used to request for forgot password
      *
      * @param forgotPassword register email id for resetting password
      * @return instruction of reset password
-     */
+     *//*
     @RequestMapping(value = "/forgotPassword", method = RequestMethod.POST)
     public ResponseEntity<Object> forgotPassword(@RequestBody ForgotPassword forgotPassword) {
         boolean isExits = mUserService.isEmailExists(forgotPassword.getEmail());
@@ -192,12 +193,12 @@ public class UserController {
         return new ResponseEntity<>(webResponse, HttpStatus.OK);
     }
 
-    /**
+    *//**
      * This method is used to update password for given email id
      *
      * @param resetPassword it contains new password ,token for registered email id
      * @return result of reset password
-     */
+     *//*
     @RequestMapping(value = "/resetPassword", method = RequestMethod.POST)
     public ResponseEntity<Object> resetPassword(@RequestBody ResetPassword resetPassword) {
         boolean isUpdatePassword = mUserService.updatePassword(resetPassword.getToken(), resetPassword.getNewPassword());
@@ -215,17 +216,17 @@ public class UserController {
     }
 
 
-    /**
+    *//**
      * This method is used to update name for given email id
      *
      * @param name name to be updated
      * @return result of operations
-     */
+     *//*
     @PutMapping(value = "/updateName/{name}")
     public ResponseEntity<Object> updateName(
             @PathVariable("name") String name) {
         WebResponse webResponse = new WebResponse("object", "",
                 HttpStatus.OK, "updated details successfully");
         return new ResponseEntity<>(webResponse, HttpStatus.OK);
-    }
+    }*/
 }

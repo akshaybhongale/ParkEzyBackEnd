@@ -16,11 +16,12 @@ public class ParkingSpot {
     private Location location;
     private String size;
     private float rate;
- /*   private SpotSchedule spotSchedule;*/
+    /*   private SpotSchedule spotSchedule;*/
     private boolean isAvailable;
     private boolean isEvEnabled;
+    private String userId;
 
-    public ParkingSpot(String parkingId, String parkingName, String address, String info, float ratings, Location location, String size, float rate, /*SpotSchedule spotSchedule, */boolean isAvailable, boolean isEvEnabled) {
+    public ParkingSpot(String parkingId, String parkingName, String address, String info, float ratings, Location location, String size, float rate, /*SpotSchedule spotSchedule, */boolean isAvailable, boolean isEvEnabled, String userId) {
         this.parkingId = parkingId;
         this.parkingName = parkingName;
         this.address = address;
@@ -29,9 +30,10 @@ public class ParkingSpot {
         this.location = location;
         this.size = size;
         this.rate = rate;
-   /*     this.spotSchedule = spotSchedule;*/
+        /*     this.spotSchedule = spotSchedule;*/
         this.isAvailable = isAvailable;
         this.isEvEnabled = isEvEnabled;
+        this.userId = userId;
     }
 
     public String getParkingId() {
@@ -98,14 +100,14 @@ public class ParkingSpot {
         this.rate = rate;
     }
 
- /*   public SpotSchedule getSpotSchedule() {
-        return spotSchedule;
-    }
+    /*   public SpotSchedule getSpotSchedule() {
+           return spotSchedule;
+       }
 
-    public void setSpotSchedule(SpotSchedule spotSchedule) {
-        this.spotSchedule = spotSchedule;
-    }
-*/
+       public void setSpotSchedule(SpotSchedule spotSchedule) {
+           this.spotSchedule = spotSchedule;
+       }
+   */
     public boolean isAvailable() {
         return isAvailable;
     }
@@ -122,6 +124,14 @@ public class ParkingSpot {
         isEvEnabled = evEnabled;
     }
 
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
     @Override
     public String toString() {
         return "ParkingSpot{" +
@@ -135,6 +145,7 @@ public class ParkingSpot {
                 ", rate=" + rate +
                 ", isAvailable=" + isAvailable +
                 ", isEvEnabled=" + isEvEnabled +
+                ", userId='" + userId + '\'' +
                 '}';
     }
 }

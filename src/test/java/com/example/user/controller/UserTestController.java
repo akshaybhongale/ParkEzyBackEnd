@@ -46,7 +46,7 @@ public class UserTestController {
         User user = new User();
         user.setPassword("HelloPassword");
         user.setName("TestUser");
-        user.setAddress("Abc");
+       // user.setAddress("Abc");
         user.setUserId("T_8600");
         user.setMobileNo("9422005826");
         user.setEmail("testUser@gmail.com");
