@@ -7,10 +7,7 @@ import com.example.user.service.TransactionService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/v1/transaction")
@@ -34,6 +31,14 @@ public class TransactionController {
         transactionService.payParking(transactionRequest);
         WebResponse webResponse = new WebResponse("object", "",
                 HttpStatus.OK, "updated  details successfully");
+        return new ResponseEntity<>(webResponse, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/getTransactionHistory/{vehicleId}", method = RequestMethod.GET)
+    public ResponseEntity<Object> getTransactionHistory(
+            @PathVariable("vehicleId") String vehicleId) {
+        WebResponse webResponse = new WebResponse("array", transactionService.getTransactionHistory(vehicleId),
+                HttpStatus.OK, "getTransactionHistory details successfully");
         return new ResponseEntity<>(webResponse, HttpStatus.OK);
     }
 }
